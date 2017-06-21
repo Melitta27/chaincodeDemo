@@ -75,7 +75,6 @@ func main() {
 
 
 func (t *SimpleChaincode) enter_patient_details(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-
 	if len(args) != 4 { 
 		return nil, errors.New("Incorrect number of arguments. Expecting 1")
 	}
@@ -83,9 +82,9 @@ func (t *SimpleChaincode) enter_patient_details(stub shim.ChaincodeStubInterface
 
 	patient := Patient{}
 	patient.Name = args[0]
-	patient.dob = args[1]
+	patient.Dob = args[1]
 	patient.CurrentProblem = args[2]
-	patient.allergies =  args[3]
+	patient.Allergies =  args[3]
 	bytes, err := json.Marshal(&patient)
 
 	if err != nil { 
